@@ -1,0 +1,13 @@
+{ nixpkgs ? import <nixpkgs> {}}:
+
+let
+  sources = {
+    haskellNix = builtins.fetchTarball "https://github.com/input-output-hk/haskell.nix/archive/master.tar.gz";
+  };
+
+  haskellNix = import sources.haskellNix { };
+
+  pkgs = import haskellNix.sources.nixpkgs-unstable (haskellNix.nixpkgsArgs // {crossSystem = nixpkgs.lib.systems.examples.riscv64-embedded;});
+in pkgs.haskell-nix.project {
+  src = ./.;
+}

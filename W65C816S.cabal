@@ -1,0 +1,43 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.7.
+--
+-- see: https://github.com/sol/hpack
+
+name:           W65C816S
+version:        0.1.0
+build-type:     Simple
+
+library
+  exposed-modules:
+      W65C816S
+      W65C816S.Addressing
+      W65C816S.Interpret
+      W65C816S.Memory.Class
+      W65C816S.State
+  other-modules:
+      Paths_W65C816S
+  hs-source-dirs:
+      lib
+  default-extensions:
+      ApplicativeDo
+  build-depends:
+      base
+    , binary
+    , bytestring
+    , optics
+    , transformers
+  default-language: Haskell2010
+
+executable W65C816S
+  main-is: Test.hs
+  other-modules:
+      Paths_W65C816S
+  hs-source-dirs:
+      exe
+  default-extensions:
+      ApplicativeDo
+  ghc-options: -main-is Test
+  build-depends:
+      base
+  default-language: Haskell2010
